@@ -1,6 +1,6 @@
 require 'active_support/deprecation'
 
-class Web::Clearance::PasswordsController < Web::Clearance::BaseController
+class Web::Clearance::PasswordsController < Web::Clearance::ApplicationController
   if respond_to?(:before_action)
     skip_before_action :require_login,
       only: [:create, :edit, :new, :update],

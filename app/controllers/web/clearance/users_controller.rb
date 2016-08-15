@@ -1,4 +1,4 @@
-class Web::Clearance::UsersController < Web::Clearance::BaseController
+class Web::Clearance::UsersController < Web::Clearance::ApplicationController
   if respond_to?(:before_action)
     before_action :redirect_signed_in_users, only: [:create, :new]
     skip_before_action :require_login, only: [:create, :new], raise: false

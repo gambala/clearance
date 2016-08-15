@@ -1,4 +1,4 @@
-class Web::Clearance::SessionsController < Web::Clearance::BaseController
+class Web::Clearance::SessionsController < Web::Clearance::ApplicationController
   if respond_to?(:before_action)
     before_action :redirect_signed_in_users, only: [:new]
     skip_before_action :require_login,
