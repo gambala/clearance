@@ -24,16 +24,16 @@ class Web::Clearance::PasswordsController < Web::Clearance::BaseController
       user.forgot_password!
       deliver_email(user)
     end
-    render template: 'passwords/create'
+    render :create
   end
 
   def edit
     @user = find_user_for_edit
-    render template: 'passwords/edit'
+    render :edit
   end
 
   def new
-    render template: 'passwords/new'
+    render :new
   end
 
   def update
@@ -44,7 +44,7 @@ class Web::Clearance::PasswordsController < Web::Clearance::BaseController
       redirect_to url_after_update
     else
       flash_failure_after_update
-      render template: 'passwords/edit'
+      render :edit
     end
   end
 
@@ -92,7 +92,7 @@ class Web::Clearance::PasswordsController < Web::Clearance::BaseController
   def ensure_existing_user
     unless find_user_by_id_and_confirmation_token
       flash_failure_when_forbidden
-      render template: "passwords/new"
+      render :new
     end
   end
 
