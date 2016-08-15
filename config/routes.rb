@@ -1,26 +1,22 @@
 if Clearance.configuration.routes_enabled?
   Rails.application.routes.draw do
-    resources :passwords,
-      controller: 'clearance/passwords',
-      only: [:create, :new]
+    scope module: :web do
+      scope module: :clearance do
+        resources :passwords, only: [:new, :create]
 
-    resource :session,
-      controller: 'clearance/sessions',
-      only: [:create]
+        resources :users, only: Clearance.configuration.user_actions do
+          resource :password, only: [:create, :edit, :update]
+        end
 
-    resources :users,
-      controller: 'clearance/users',
-      only: Clearance.configuration.user_actions do
-        resource :password,
-          controller: 'clearance/passwords',
-          only: [:create, :edit, :update]
+        resource :session, only: [:create]
+
+        delete :logout, to: 'sessions#destroy', as: :sign_out
+        get :login, to: 'sessions#new', as: :sign_in
+
+        if Clearance.configuration.allow_sign_up?
+          get :register, to: 'users#new', as: :sign_up
+        end
       end
-
-    get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
-    delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
-
-    if Clearance.configuration.allow_sign_up?
-      get '/sign_up' => 'clearance/users#new', as: 'sign_up'
     end
   end
 end

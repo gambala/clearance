@@ -1,4 +1,4 @@
-class Clearance::SessionsController < Clearance::BaseController
+class Web::Clearance::SessionsController < Web::Clearance::ApplicationController
   if respond_to?(:before_action)
     before_action :redirect_signed_in_users, only: [:new]
     skip_before_action :require_login,
@@ -25,7 +25,7 @@ class Clearance::SessionsController < Clearance::BaseController
         redirect_back_or url_after_create
       else
         flash.now.notice = status.failure_message
-        render template: "sessions/new", status: :unauthorized
+        render :new, status: :unauthorized
       end
     end
   end
@@ -36,7 +36,7 @@ class Clearance::SessionsController < Clearance::BaseController
   end
 
   def new
-    render template: "sessions/new"
+    render :new
   end
 
   private
