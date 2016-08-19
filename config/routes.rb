@@ -10,12 +10,9 @@ if Clearance.configuration.routes_enabled?
 
         resource :session, only: [:create]
 
-        delete :logout, to: 'sessions#destroy', as: :sign_out
-        get :login, to: 'sessions#new', as: :sign_in
-
-        if Clearance.configuration.allow_sign_up?
-          get :register, to: 'users#new', as: :sign_up
-        end
+        delete :logout, to: 'sessions#destroy'
+        get :login, to: 'sessions#new'
+        get :register, to: 'users#new' if Clearance.configuration.allow_sign_up?
       end
     end
   end

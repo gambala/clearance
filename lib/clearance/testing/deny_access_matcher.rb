@@ -11,7 +11,7 @@ module Clearance
       # @option opts [String] :flash The expected flash notice message. Defaults
       #   to nil, which means the flash will not be checked.
       # @option opts [String] :redirect The expected redirect url. Defaults to
-      #   `'/'` if signed in or the `sign_in_url` if signed out.
+      #   `'/'` if signed in or the `login_url` if signed out.
       #
       #       class PostsController < ActionController::Base
       #         before_action :require_login
@@ -70,7 +70,7 @@ module Clearance
           if clearance_session.signed_in?
             Clearance.configuration.redirect_url
           else
-            @controller.sign_in_url
+            @controller.login_url
           end
         end
 

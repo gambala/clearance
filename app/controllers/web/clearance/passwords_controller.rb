@@ -109,7 +109,7 @@ class Web::Clearance::PasswordsController < Web::Clearance::ApplicationControlle
   end
 
   def url_after_create
-    sign_in_url
+    login_url
   end
 
   def url_after_update
