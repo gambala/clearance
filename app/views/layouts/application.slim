@@ -6,9 +6,9 @@ html
   body
     div id='header'
       - if signed_in?
-        = button_to t('.sign_out'), sign_out_path, method: :delete
+        = button_to t('.logout'), logout_path, method: :delete
       - else
-        = link_to t('.sign_in'), sign_in_path
+        = link_to t('.login'), login_path
     div id='flash'
       - flash.each do |key, value|
         div id="flash_#{key}" = h value

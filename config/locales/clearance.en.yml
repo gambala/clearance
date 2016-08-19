@@ -29,13 +29,13 @@ en:
       password_reset:
         submit: Save this password
       session:
-        submit: Sign in
+        submit: Login
       user:
-        create: Sign up
+        create: Register
   layouts:
     application:
-      sign_in: Sign in
-      sign_out: Sign out
+      login: Login
+      logout: Logout
   passwords:
     create:
       description: You will receive an email within the next few minutes. It
@@ -50,10 +50,10 @@ en:
   sessions:
     form:
       forgot_password: Forgot password?
-      sign_up: Sign up
+      register: Register
     new:
-      title: Sign in
+      title: Login
   users:
     new:
-      sign_in: Sign in
-      title: Sign up
+      login: Login
+      title: Register

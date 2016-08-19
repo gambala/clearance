@@ -52,7 +52,7 @@ class Web::Clearance::SessionsController < Web::Clearance::ApplicationController
   end
 
   def url_after_destroy
-    sign_in_url
+    login_url
   end
 
   def url_for_signed_in_users
