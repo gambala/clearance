@@ -3,6 +3,23 @@
 The noteworthy changes for each Clearance version are included here. For a
 complete changelog, see the git history for each version via the version links.
 
+## [1.15.1] - October 6, 2016
+
+### Fixed
+- Password reset form redirect no longer uses a named route helper, which means
+  it will work for developers that have customized their routes.
+
+[1.15.1]: https://github.com/thoughtbot/clearance/compare/v1.15.0...v1.15.1
+
+## [1.15.0] - September 26, 2016
+
+### Security
+- Prevent possible password reset token leak to external sites linked to on the
+  password reset page. See [PR #707] for more information.
+
+[PR #707]: https://github.com/thoughtbot/clearance/pull/707
+[1.15.0]: https://github.com/thoughtbot/clearance/compare/v1.14.2...v1.15.0
+
 ## [1.14.2] - August 10, 2016
 
 ### Fixed
