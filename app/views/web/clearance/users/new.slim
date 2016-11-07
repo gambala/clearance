@@ -1,8 +1,5 @@
 .sign-up id='clearance'
   h2 = t('.title')
-  = form_for @user do |form|
-    = render partial: 'form', object: form
-    .submit-field
-      = form.submit
-    .other-links
-      = link_to t('.login'), login_path
+  = render partial: 'form'
+  .other-links
+    = link_to t('.login'), login_path
